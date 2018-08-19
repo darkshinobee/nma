@@ -56,7 +56,6 @@ class LaratrustSeeder extends Seeder
             // Create default user for each role
             $user = \App\User::create([
                 'first_name' => str_random(6),
-                'middle_name' => str_random(5),
                 'last_name' => str_random(8),
                 'email' => $key.'@app.com',
                 'phone' => rand(11111111111, 99999999999),
@@ -76,7 +75,6 @@ class LaratrustSeeder extends Seeder
                     // Create default user for each permission set
                     $user = \App\User::create([
                         'first_name' => str_random(6),
-                        'middle_name' => str_random(5),
                         'last_name' => str_random(8),
                         'email' => $key.'@app.com',
                         'phone' => rand(11111111111, 99999999999),
