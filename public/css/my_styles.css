@@ -1,0 +1,25 @@
+body, html {
+    height: 100%;
+}
+
+.hero-image {
+  background-image: url("/images/canvas/stethoscope.jpg"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#nav_search{
+  border-radius: 15px;
+}
+
+#nav_text{
+  color: #ffffff;
+}
+
+#nav_text:hover{
+  color: #cccccc;
+  font-size: 110%;
+}
