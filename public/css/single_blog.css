@@ -1,0 +1,76 @@
+@import "compass/css3";
+
+* {
+  box-sizing:border-box;
+  /*font-family: Baskerville, "Hoefler Text", Garamond, "Times New Roman", serif;*/
+}
+
+a, a:link, a:visited {
+  color:#308fd9;
+  text-decoration:none;
+  transition: color .3s;
+}
+
+a:hover {
+  color:#80bbff;
+}
+
+.content {
+  max-width: 750px;
+  margin:40px auto;
+  padding:0;
+}
+
+.date {
+  float:left;
+  width:10%;
+  /*color: #ffffff;*/
+  text-align:center;
+  span {
+    margin:0;
+    line-height:50%;
+  }
+  .day {
+    float:left;
+    margin-top:0.1em;
+    width:100%;
+    color:#68a9ff;
+    font-size:200%;
+  }
+}
+
+.date-line {
+  display:none;
+}
+
+.article {
+  width:90%;
+  margin:0 0 6em 0;
+  float:left;
+  padding:0 1.3em 0 1.3em;
+  border-left:5px solid #308fd9;
+}
+.article p{
+  font-size: 1.2em;
+}
+
+@media only screen
+    and (max-width : 450px) {
+  .content {
+    margin-top:2em;
+  }
+  .date {
+    display:none;
+  }
+  .date-line {
+    display:inline;
+  }
+  .article {
+    width:100%;
+    margin:0 auto 2em auto;
+    border-left:none;
+    padding-bottom:2em;
+    border-bottom:1px solid #ccc;
+    font-size: 1.2em;
+  }
+}

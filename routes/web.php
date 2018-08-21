@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/single_blog', function () {
+    return view('blog.single');
+});
 
 Auth::routes();
 

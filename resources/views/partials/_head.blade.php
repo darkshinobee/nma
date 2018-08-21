@@ -5,6 +5,9 @@
 
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/my_styles.css">
+<link rel="stylesheet" href="/css/table.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/single_blog.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 <!-- CSRF Token -->
