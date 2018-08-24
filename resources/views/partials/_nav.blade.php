@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">NMA Portal</a>
+  <a class="navbar-brand" href="#">NMA PORTAL</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,13 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="#">Home</a>
+        <a class="nav-link" id="nav_text" href="#">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="#">Articles</a>
+        <a class="nav-link" id="nav_text" href="#">ABOUT US</a>
       </li>
       <li class="nav-item">
-        <a class="btn btn-outline-primary" href="#">Post Article</a>
+        <a class="nav-link" id="nav_text" href="#">ARTICLES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="nav_text" href="#">CONTACT US</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-outline-primary" href="#">POST ARTICLE</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -41,7 +47,7 @@
                   </li>
                 @else
                     <li class="nav-item">
-                      <a class="nav-link" id="nav_text" href="{{ route('login') }}">Login</a>
+                      <a class="nav-link" id="nav_text" href="{{ route('login') }}">LOGIN</a>
                     </li>
                     {{-- <li class="nav-item">
                       <a class="nav-link" href="{{ route('register') }}">Register</a>

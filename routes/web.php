@@ -17,6 +17,15 @@ Route::get('/', function () {
 Route::get('/single_blog', function () {
     return view('blog.single');
 });
+Route::get('/create_blog', function () {
+    return view('blog.create');
+});
+Route::get('/about', function () {
+    return view('pages.about');
+});
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
 
 Auth::routes();
 

@@ -32,3 +32,8 @@ body, html {
   color: #cccccc;
   font-size: 110%;
 }
+
+.about_flow {
+  height: 400px;
+  overflow-y: scroll;
+}
