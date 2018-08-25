@@ -1,11 +1,11 @@
 @extends('master')
-@section('title', 'Homepage')
+@section('title', 'All Articles')
 
 @section('content')
 
 <div class="card text-white bg-dark">
     <div class="card-body">
-      <h2 class="text-center">RECENT ARTICLES</h2><br>
+      <h2 class="text-center">ALL ARTICLES</h2><br>
         <table class="table table-hover table-borderless">
             <thead class="table-bordered">
                 <tr>

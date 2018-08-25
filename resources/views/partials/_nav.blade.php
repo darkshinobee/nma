@@ -7,19 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="#">HOME</a>
+        <a class="nav-link" id="nav_text" href="/">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="#">ABOUT US</a>
+        <a class="nav-link" id="nav_text" href="/about">ABOUT US</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="#">ARTICLES</a>
+        <a class="nav-link" id="nav_text" href="/all_articles">ARTICLES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="#">CONTACT US</a>
+        <a class="nav-link" id="nav_text" href="/contact">CONTACT US</a>
       </li>
       <li class="nav-item">
-        <a class="btn btn-outline-primary" href="#">POST ARTICLE</a>
+        <a class="btn btn-outline-primary" href="/create_blog">POST ARTICLE</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">

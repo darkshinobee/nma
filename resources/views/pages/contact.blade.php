@@ -17,11 +17,11 @@
         <div class="col-6">
           <h3 class="text-center">Send Us A Message Here</h3><br>
           <form>
-            <input type="text" name="name" class="form-control" placeholder="Enter Name Here"><br>
-            <input type="text" name="email" class="form-control" placeholder="Enter Email Here"><br>
-            <input type="text" name="subject" class="form-control" placeholder="Enter Subject Here"><br>
-            <textarea name="message" rows="8" cols="71" placeholder="Compose Message ..."></textarea>
-            <button type="button" name="submit_contact" class="btn btn-block btn-primary">Send</button>
+            <input type="text" name="name" class="form-control" placeholder="Enter Name Here" required><br>
+            <input type="text" name="email" class="form-control" placeholder="Enter Email Here" required><br>
+            <input type="text" name="subject" class="form-control" placeholder="Enter Subject Here" required><br>
+            <textarea name="message" rows="8" cols="71" placeholder="Compose Message ..." required></textarea>
+            <button type="submit" name="submit_contact" class="btn btn-block btn-primary">Send</button>
           </form>
         </div>
       </div>

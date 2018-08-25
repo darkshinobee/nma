@@ -26,6 +26,18 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 });
+Route::get('/edit_account', function () {
+    return view('auth.edit_account');
+});
+Route::get('/my_account', function () {
+    return view('auth.my_account');
+});
+Route::get('/my_articles', function () {
+    return view('auth.my_articles');
+});
+Route::get('/all_articles', function () {
+    return view('blog.all');
+});
 
 Auth::routes();
 

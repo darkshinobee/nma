@@ -9,7 +9,7 @@
         <div class="col-8 offset-2">
           <form class="" action="index.html" method="post">
 
-            <input type="text" name="title" class="form-control" placeholder="Enter Title Here"><br>
+            <input type="text" name="title" class="form-control" placeholder="Enter Title Here" required><br>
 
             <div class="row">
               <div class="form-check col-6">
@@ -33,7 +33,7 @@
             <br>
             <div class="row">
               <div class="col-8 offset-2">
-                <button type="button" name="submit_create" class="btn btn-block btn-primary">Submit</button>
+                <button type="submit" name="submit_create" class="btn btn-block btn-primary">Submit</button>
               </div>
             </div>
           </form>

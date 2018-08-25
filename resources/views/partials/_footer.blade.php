@@ -1,4 +1,4 @@
-<p class="footer-company-motto">NMA Portal</p>
+<p class="footer-company-motto" id="nav_text">NMA Portal</p>
 
 <p class="footer-links">
     <a href="#">Home</a> ·

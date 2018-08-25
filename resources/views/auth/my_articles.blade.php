@@ -1,18 +1,17 @@
 @extends('master')
-@section('title', 'Homepage')
+@section('title', 'My Articles')
 
 @section('content')
 
 <div class="card text-white bg-dark">
     <div class="card-body">
-      <h2 class="text-center">RECENT ARTICLES</h2><br>
+      <h2 class="text-center">MY ARTICLES</h2><br>
         <table class="table table-hover table-borderless">
             <thead class="table-bordered">
                 <tr>
                     {{--
                     <th scope="col">#</th> --}}
                     <th scope="col">TITLE</th>
-                    <th scope="col">AUTHOR</th>
                     <th scope="col">DATE POSTED</th>
                 </tr>
             </thead>
@@ -20,7 +19,6 @@
                 @for ($i = 0; $i
                 < 5; $i++) <tr>
                     <td>Calcified Hematoma</td>
-                    <td>Dr Strange</td>
                     <td>{{ date("F jS, Y") }}</td>
                     </tr>
                     @endfor
