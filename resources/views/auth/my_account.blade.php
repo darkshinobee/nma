@@ -11,7 +11,7 @@
                 </a>
             </div>
             <div class="col-6">
-                <a href="/edit_account">
+                <a href="{{ route('edit_account') }}">
                   <button type="button" class="btn btn-outline-warning btn-block btn-lg">Edit My Account</button>
                 </a>
             </div>

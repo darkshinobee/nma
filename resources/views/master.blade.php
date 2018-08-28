@@ -7,6 +7,11 @@
 
 <body class="hero-image">
     @include('partials._nav')
+    <div class="row">
+      <div class="col-8 offset-2">
+        @include('partials._prompts')
+      </div>
+    </div>
     <div class="main-container">
         <div class="container">
             @yield('content')

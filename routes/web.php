@@ -11,36 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/single_blog', function () {
     return view('blog.single');
 });
-Route::get('/create_blog', function () {
-    return view('blog.create');
-});
-Route::get('/about', function () {
-    return view('pages.about');
-});
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
-Route::get('/edit_account', function () {
-    return view('auth.edit_account');
-});
-Route::get('/my_account', function () {
-    return view('auth.my_account');
-});
-Route::get('/my_articles', function () {
-    return view('auth.my_articles');
-});
-Route::get('/all_articles', function () {
-    return view('blog.all');
-});
+
+// Route::get('/edit_account', function () {
+//     return view('auth.edit_account');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+
+Route::get('/my_account', 'UserController@my_account')->name('my_account');
+Route::get('/edit_account', 'UserController@edit_account')->name('edit_account');
+Route::put('/update_account/{user_id}', 'UserController@update_account')->name('update_account');
+
+Route::get('/all_articles', 'BlogController@index')->name('all_articles');
+Route::get('/post_article', 'BlogController@create')->name('post_article');
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 // Route::post('/logout', 'Auth\LoginController@logout')->name('logout');

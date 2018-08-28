@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">NMA PORTAL</a>
+  <a class="navbar-brand" href="{{ route('home') }}">NMA PORTAL</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,19 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="/">HOME</a>
+        <a class="nav-link" id="nav_text" href="{{ route('home') }}">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="/about">ABOUT US</a>
+        <a class="nav-link" id="nav_text" href="{{ route('about') }}">ABOUT US</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="/all_articles">ARTICLES</a>
+        <a class="nav-link" id="nav_text" href="{{ route('all_articles') }}">ARTICLES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="nav_text" href="/contact">CONTACT US</a>
+        <a class="nav-link" id="nav_text" href="{{ route('contact') }}">CONTACT US</a>
       </li>
       <li class="nav-item">
-        <a class="btn btn-outline-primary" href="/create_blog">POST ARTICLE</a>
+        <a class="btn btn-outline-primary" href="{{ route('post_article') }}">POST ARTICLE</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -32,7 +32,7 @@
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">{{ __('My Account') }}</a>
+                        <a class="dropdown-item" href="{{ route('my_account') }}">{{ __('My Account') }}</a>
                           <a class="dropdown-item" href="{{ route('logout') }}"
                              {{-- onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();" --}}
