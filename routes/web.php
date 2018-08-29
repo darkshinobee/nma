@@ -18,10 +18,6 @@ Route::get('/single_blog', function () {
     return view('blog.single');
 });
 
-// Route::get('/edit_account', function () {
-//     return view('auth.edit_account');
-// });
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -34,6 +30,6 @@ Route::put('/update_account/{user_id}', 'UserController@update_account')->name('
 
 Route::get('/all_articles', 'BlogController@index')->name('all_articles');
 Route::get('/post_article', 'BlogController@create')->name('post_article');
+// Route::get('/store_article', 'BlogController@store')->name('store_article');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-// Route::post('/logout', 'Auth\LoginController@logout')->name('logout');

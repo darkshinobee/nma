@@ -7,7 +7,8 @@
     <h2 class="text-center">Post Article</h2>
       <div class="row">
         <div class="col-8 offset-2">
-          <form class="" action="index.html" method="post">
+          <form action="" method="post">
+            {{ csrf_field() }}
 
             <input type="text" name="title" class="form-control" placeholder="Enter Title Here" required><br>
 

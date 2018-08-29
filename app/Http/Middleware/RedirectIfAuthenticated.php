@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-          return Redirect::action('UserController@my_account');
+         return Redirect::route('home');
         }
 
         return $next($request);

@@ -18,7 +18,7 @@
         </div><br>
         <div class="row">
             <div class="col-8 offset-2">
-              <a href="/">
+              <a href="{{ route('home') }}">
                 <button type="button" class="btn btn-primary btn-block btn-lg">Go To Homepage</button>
               </a>
             </div>

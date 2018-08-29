@@ -12,6 +12,12 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth')->except('index');
+     }
+
     public function index()
     {
         return view('blog.all');
@@ -35,7 +41,13 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //Validation
+      $validatedData = $request->validate([
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'email' => ['required', 'string', 'max:255', 'email', Rule::unique('users')->ignore($user->id)],
+        'phone' => ['required', 'string', 'size:11', Rule::unique('users')->ignore($user->id)],
+      ]);
     }
 
     /**
