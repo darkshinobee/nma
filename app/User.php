@@ -34,4 +34,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Blog');
     }
 
+    public function photo()
+    {
+        return $this->hasOne('App\Photo');
+    }
+
 }

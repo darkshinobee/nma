@@ -6,13 +6,28 @@
       <h2 class="text-center">MY ACCOUNT DETAILS</h2><br>
       <div class="row">
         <div class="col-8 offset-2">
-            <form action="{{ route('update_account', $user->id) }}" method="post" id="form1">
+            <form action="{{ route('update_account', $user->id) }}" method="post" id="form1" enctype="multipart/form-data">
               {{ csrf_field() }}
               @method('PUT')
-            <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}" required><br>
-            <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}" required><br>
-            <input type="email" class="form-control" name="email" value="{{ $user->email }}" required><br>
-            <input type="text" class="form-control" name="phone" value="{{ $user->phone }}" required><br>
+              <div class="row">
+                <div class="col-4">
+                  @if ($photo)
+                    <img class="img-fluid" src="{{ ($photo->path) }}" alt="{{ $user->first_name.' '.$user->last_name }}">
+                    <input type="file" name="hoto" accept="image/*" class="m-t-15 form-control">
+                  @else
+                    <img src="/images/photos/no_img.png" alt="No Image Available">
+                    <input type="file" name="hoto" accept="image/*" class="m-t-15 form-control">
+                  @endif
+
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}" required><br>
+                  <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}" required><br>
+                  <input type="email" class="form-control" name="email" value="{{ $user->email }}" required><br>
+                  <input type="text" class="form-control" name="phone" value="{{ $user->phone }}" required><br>
+                </div>
+              </div>
+
             <div class="row">
               <div class="col-8 offset-2">
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#confirm_modal">Make Changes</button>

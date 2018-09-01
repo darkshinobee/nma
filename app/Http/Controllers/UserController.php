@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Photo;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Image;
 
 class UserController extends Controller
 {
@@ -25,7 +27,8 @@ class UserController extends Controller
   public function edit_account()
   {
     $user = Auth::user();
-    return view('auth.edit_account')->withUser($user);
+    $photo = User::find($user->id)->photo;
+    return view('auth.edit_account', compact('user', 'photo'));
   }
 
   public function update_account(Request $request, $id)
@@ -39,6 +42,7 @@ class UserController extends Controller
       'last_name' => 'required|string|max:255',
       'email' => ['required', 'string', 'max:255', 'email', Rule::unique('users')->ignore($user->id)],
       'phone' => ['required', 'string', 'size:11', Rule::unique('users')->ignore($user->id)],
+      'hoto' => 'nullable|mimes:jpeg,jpg,png|max:200',
     ]);
     // dd($validatedData);
 
@@ -49,8 +53,38 @@ class UserController extends Controller
     $user->email = $request->input('email');
     $user->phone = $request->input('phone');
 
-    //Save changes
+    //Save User Changes
     $user->save();
+
+    // Image Update
+    $photo = User::find($user->id)->photo;
+    if ($photo) {
+      if ($request->hasFile('hoto')) {
+
+        $photo = Photo::find($photo->id);
+
+        $image = $request->file('hoto');
+        $photo_name = $user->email. '.' .$image->getClientOriginalExtension();
+        $photo->name = $photo_name;
+        $location = public_path('images/photos/'.$photo_name);
+        $photo->path = '/images/photos/'.$photo_name;
+        Image::make($image)->resize(165, 165)->save($location);
+        $photo->save();
+      }
+    }else {
+      if ($request->hasFile('hoto')) {
+        $image = $request->file('hoto');
+        $photo_name = $user->email. '.' .$image->getClientOriginalExtension();
+
+        $photo_obj = new Photo;
+        $photo_obj->name = $photo_name;
+        $location = public_path('images/photos/'.$photo_name);
+        $photo_obj->path = '/images/photos/'.$photo_name;
+        Image::make($image)->resize(165, 165)->save($location);
+        $photo_obj->user_id = $user->id;
+        $photo_obj->save();
+      }
+    }
 
     //Set flash message
     Session::flash('success', 'Details Updated!');
