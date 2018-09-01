@@ -6,7 +6,7 @@
         <h2 class="text-center">MY ACCOUNT</h2><br>
         <div class="row">
             <div class="col-6">
-                <a href="/my_articles">
+                <a href="{{ route('my_info') }}">
                   <button type="button" class="btn btn-outline-success btn-block btn-lg">View My Articles</button>
                 </a>
             </div>

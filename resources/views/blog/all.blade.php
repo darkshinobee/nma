@@ -17,13 +17,13 @@
                 </tr>
             </thead>
             <tbody>
-                @for ($i = 0; $i
-                < 5; $i++) <tr>
-                    <td>Calcified Hematoma</td>
-                    <td>Dr Strange</td>
-                    <td>{{ date("F jS, Y") }}</td>
-                    </tr>
-                    @endfor
+              @foreach ($posts as $post)
+                <tr>
+                  <td><a id="nav_text" href="{{ route('show_article', $post->id) }}" style="color:white">{{ $post->title }}</a></td>
+                  <td><a id="nav_text" href="{{ route('author_info', $post->user_id) }}">{{ $post->first_name. ' ' .$post->last_name }}</a></td>
+                  <td>{{ date('F jS, Y', strtotime($post->created_at)) }}</td>
+                </tr>
+              @endforeach
             </tbody>
         </table>
     </div>

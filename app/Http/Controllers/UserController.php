@@ -9,6 +9,7 @@ use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 class UserController extends Controller
@@ -91,6 +92,22 @@ class UserController extends Controller
 
     //Redirection
     return redirect()->route('my_account');
+  }
+
+  public function my_info()
+  {
+    $user = Auth::user();
+    $photo = User::find($user->id)->photo;
+    $posts = DB::table('blogs')->where('user_id', $user->id)->get();
+    return view('auth.my_articles', compact('user', 'posts', 'photo'));
+  }
+
+  public function author_info($id)
+  {
+    $author = User::find($id);
+    $photo = User::find($id)->photo;
+    $posts = DB::table('blogs')->where('user_id', $id)->get();
+    return view('blog.author_info', compact('author', 'posts', 'photo'));
   }
 
 }

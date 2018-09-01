@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -15,12 +18,17 @@ class BlogController extends Controller
 
      public function __construct()
      {
-         $this->middleware('auth')->except('index');
+         $this->middleware('auth')->except('index', 'show');
      }
 
     public function index()
     {
-        return view('blog.all');
+        $b = 'blogs';
+        $u = 'users';
+        $posts = DB::table($u)->select($b.'.id', $b.'.user_id', $b.'.title', $b.'.created_at', $u.'.first_name', $u.'.last_name')
+        ->join($b, $u.'.id', '=', $b.'.user_id')
+        ->get();
+        return view('blog.all', compact('posts'));
     }
 
     /**
@@ -30,7 +38,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        $user = Auth::user();
+        return view('blog.create', compact('user'));
     }
 
     /**
@@ -43,11 +52,23 @@ class BlogController extends Controller
     {
       //Validation
       $validatedData = $request->validate([
-        'first_name' => 'required|string|max:255',
-        'last_name' => 'required|string|max:255',
-        'email' => ['required', 'string', 'max:255', 'email', Rule::unique('users')->ignore($user->id)],
-        'phone' => ['required', 'string', 'size:11', Rule::unique('users')->ignore($user->id)],
+        'title' => 'required|string|max:255',
+        'content' => 'required',
       ]);
+
+      $user = Auth::user();
+
+      $blog = new Blog;
+      $blog->title = $request->title;
+      $blog->content = $request->content;
+      $blog->user_id = $user->id;
+      $blog->save();
+
+      //Set flash message
+      Session::flash('success', 'Article Created!');
+
+      //Redirection
+      return redirect()->route('my_account');
     }
 
     /**
@@ -56,9 +77,10 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
-        //
+        $blog = Blog::find($id);
+        return view('blog.single', compact('blog'));
     }
 
     /**

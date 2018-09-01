@@ -14,9 +14,6 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/single_blog', function () {
-    return view('blog.single');
-});
 
 Auth::routes();
 
@@ -27,9 +24,12 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/my_account', 'UserController@my_account')->name('my_account');
 Route::get('/edit_account', 'UserController@edit_account')->name('edit_account');
 Route::put('/update_account/{user_id}', 'UserController@update_account')->name('update_account');
+Route::get('/my_info', 'UserController@my_info')->name('my_info');
+Route::get('/author_info/{id}', 'UserController@author_info')->name('author_info');
 
 Route::get('/all_articles', 'BlogController@index')->name('all_articles');
 Route::get('/post_article', 'BlogController@create')->name('post_article');
-// Route::get('/store_article', 'BlogController@store')->name('store_article');
+Route::post('/store_article', 'BlogController@store')->name('store_article');
+Route::get('/article/{id}', 'BlogController@show')->name('show_article');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
