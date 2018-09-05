@@ -110,4 +110,20 @@ class UserController extends Controller
     return view('blog.author_info', compact('author', 'posts', 'photo'));
   }
 
+  public function search_user(Request $request)
+  {
+    if ($request->has('key')) {
+      $key = $request->input("key");
+      $u = 'users';
+      $p = 'photos';
+      $posts = DB::table($u)->select($u.'.first_name', $u.'.last_name', $p.'.path', $p.'.user_id')
+      ->join($p, $u.'.id', '=', $p.'.user_id')
+      ->where('first_name', 'like', '%'.$key.'%')
+      ->orWhere('last_name', 'like', '%'.$key.'%')
+      ->get();
+
+    }
+      return view('auth.user_results', compact('posts'));
+  }
+
 }

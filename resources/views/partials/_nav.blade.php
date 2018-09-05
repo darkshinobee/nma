@@ -61,7 +61,11 @@
 <div class="row">
   <div class="col-8 offset-2">
     <div class="input-group input-group-lg">
-      <input type="text" class="form-control" id="nav_search" placeholder="Search Article, Doctor ...">
+      <form id="search_form" action="{{ route('search_article') }}" method="post">
+        {{ csrf_field() }}
+        </form>
+        <input type="text" form="search_form" class="form-control" name="key" id="nav_search" placeholder="Search Article">
+        <input type="submit" form="search_form" value="Submit" hidden>
     </div>
   </div>
 </div>
