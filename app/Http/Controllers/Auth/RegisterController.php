@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Image;
 use App\User;
+use App\Photo;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -54,6 +56,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|string|size:11|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'hoto' => 'nullable|mimes:jpeg,jpg,png|max:200',
         ]);
     }
 
@@ -65,6 +68,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $max_id = User::max('id');
+      if ($data['hoto']) {
+        $image = $data['hoto'];
+        $photo_name = $data['email']. '.' .$image->getClientOriginalExtension();
+
+        $photo_obj = new Photo;
+        $photo_obj->name = $photo_name;
+        $location = public_path('images/photos/'.$photo_name);
+        $photo_obj->path = '/images/photos/'.$photo_name;
+        Image::make($image)->resize(165, 165)->save($location);
+        $photo_obj->user_id = $max_id + 1;
+        $photo_obj->save();
+      }
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],

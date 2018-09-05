@@ -25,9 +25,12 @@ class BlogController extends Controller
     {
         $b = 'blogs';
         $u = 'users';
-        $posts = DB::table($u)->select($b.'.id', $b.'.user_id', $b.'.title', $b.'.created_at', $u.'.first_name', $u.'.last_name')
+        $p = 'photos';
+        $posts = DB::table($u)->select($b.'.id', $b.'.user_id', $b.'.title', $b.'.created_at', $u.'.first_name', $u.'.last_name', $p.'.path')
         ->join($b, $u.'.id', '=', $b.'.user_id')
-        ->get();
+        ->join($p, $b.'.user_id', '=', $p.'.user_id')
+        ->orderBy($b.'.created_at', 'desc')
+        ->simplePaginate(5);
         return view('blog.all', compact('posts'));
     }
 

@@ -18,10 +18,17 @@
                 @foreach ($posts as $post)
                   <tr>
                     <td><a id="nav_text" href="{{ route('show_article', $post->id) }}" style="color:white">{{ $post->title }}</a></td>
-                    <td><a id="nav_text" href="{{ route('author_info', $post->user_id) }}">{{ $post->first_name. ' ' .$post->last_name }}</a></td>
+                    <td><img src="{{ $post->path }}" style="border-radius:50%; height:45px" class="m-r-15"><a id="nav_text" href="{{ route('author_info', $post->user_id) }}">{{ $post->first_name. ' ' .$post->last_name }}</a></td>
                     <td>{{ date('F jS, Y', strtotime($post->created_at)) }}</td>
                   </tr>
                 @endforeach
+                {{-- @foreach ($posts as $post)
+                  <tr>
+                    <td><a id="nav_text" href="{{ route('show_article', $post->id) }}"> <img src="{{ $post->path }}" style="border-radius:50%; height:45px" alt=""> </a></td>
+                    <td><a id="nav_text" href="{{ route('author_info', $post->user_id) }}">{{ $post->first_name. ' ' .$post->last_name }}</a></td>
+                    <td>{{ date('F jS, Y', strtotime($post->created_at)) }}</td>
+                  </tr>
+                @endforeach --}}
             </tbody>
         </table>
     </div>

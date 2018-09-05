@@ -26,8 +26,12 @@ class HomeController extends Controller
     {
         $b = 'blogs';
         $u = 'users';
-        $posts = DB::table($u)->select($b.'.id', $b.'.user_id', $b.'.title', $b.'.created_at', $u.'.first_name', $u.'.last_name')
+        $p = 'photos';
+        $posts = DB::table($u)->select($b.'.id', $b.'.user_id', $b.'.title', $b.'.created_at', $u.'.first_name', $u.'.last_name', $p.'.path')
         ->join($b, $u.'.id', '=', $b.'.user_id')
+        ->join($p, $b.'.user_id', '=', $p.'.user_id')
+        ->orderBy($b.'.created_at', 'desc')
+        ->take(5)
         ->get();
         return view('welcome', compact('posts'));
     }
